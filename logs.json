@@ -1,0 +1,354 @@
+{
+  "logs": [
+    {
+      "id": 1,
+      "data": "2026-03-05T08:23:15.000Z",
+      "usuario": "admin",
+      "acao": "Login realizado",
+      "ip": "192.168.1.100"
+    },
+    {
+      "id": 2,
+      "data": "2026-03-05T09:45:22.000Z",
+      "usuario": "admin",
+      "acao": "Produto adicionado: Vela Lavanda",
+      "ip": "192.168.1.100"
+    },
+    {
+      "id": 3,
+      "data": "2026-03-05T10:15:33.000Z",
+      "usuario": "admin",
+      "acao": "Promoção de 24h ativada",
+      "ip": "192.168.1.100"
+    },
+    {
+      "id": 4,
+      "data": "2026-03-05T11:30:45.000Z",
+      "usuario": "admin",
+      "acao": "Configurações atualizadas",
+      "ip": "192.168.1.100"
+    },
+    {
+      "id": 5,
+      "data": "2026-03-05T19:02:53.996Z",
+      "usuario": "admin",
+      "acao": "Login realizado",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 6,
+      "data": "2026-03-05T19:03:17.192Z",
+      "usuario": "admin",
+      "acao": "Login realizado",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 7,
+      "data": "2026-03-05T19:03:28.860Z",
+      "usuario": "admin",
+      "acao": "Login realizado",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 8,
+      "data": "2026-03-05T19:03:41.586Z",
+      "usuario": "admin",
+      "acao": "Login realizado",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 9,
+      "data": "2026-03-05T19:04:06.933Z",
+      "usuario": "admin",
+      "acao": "Login realizado",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 10,
+      "data": "2026-03-05T19:04:15.924Z",
+      "usuario": "admin",
+      "acao": "Login realizado",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 11,
+      "data": "2026-03-05T19:04:51.431Z",
+      "usuario": "admin",
+      "acao": "Login realizado",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 12,
+      "data": "2026-03-05T19:05:16.519Z",
+      "usuario": "admin",
+      "acao": "Login realizado",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 13,
+      "data": "2026-03-05T19:05:46.544Z",
+      "usuario": "admin",
+      "acao": "Login realizado",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 14,
+      "data": "2026-03-05T19:06:20.029Z",
+      "usuario": "admin",
+      "acao": "Login realizado",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 15,
+      "data": "2026-03-05T19:06:27.581Z",
+      "usuario": "admin",
+      "acao": "Produto excluído: Sabonete Mel & Aveia",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 16,
+      "data": "2026-03-05T19:06:29.330Z",
+      "usuario": "admin",
+      "acao": "Produto excluído: Sabonete Líquido Lavanda",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 17,
+      "data": "2026-03-05T19:06:30.623Z",
+      "usuario": "admin",
+      "acao": "Produto excluído: Sabonete Rosas",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 18,
+      "data": "2026-03-05T19:06:31.728Z",
+      "usuario": "admin",
+      "acao": "Produto excluído: Kit Presente Especial",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 19,
+      "data": "2026-03-05T19:06:41.163Z",
+      "usuario": "admin",
+      "acao": "Login realizado",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 20,
+      "data": "2026-03-05T19:09:19.619Z",
+      "usuario": "admin",
+      "acao": "Produto adicionado: Kit Stitch",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 21,
+      "data": "2026-03-05T19:09:59.909Z",
+      "usuario": "admin",
+      "acao": "Login realizado",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 22,
+      "data": "2026-03-05T19:10:44.698Z",
+      "usuario": "admin",
+      "acao": "Configurações atualizadas",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 23,
+      "data": "2026-03-05T19:12:44.841Z",
+      "usuario": "admin",
+      "acao": "Produto adicionado: Kit Lavanda",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 24,
+      "data": "2026-03-05T19:13:31.977Z",
+      "usuario": "admin",
+      "acao": "Produto atualizado: Kit Lavanda",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 25,
+      "data": "2026-03-05T19:14:46.084Z",
+      "usuario": "admin",
+      "acao": "Produto adicionado: Kit Capim limão",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 26,
+      "data": "2026-03-05T19:16:16.370Z",
+      "usuario": "admin",
+      "acao": "Produto adicionado: Kit Chá Branco Artesanal",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 27,
+      "data": "2026-03-05T19:20:30.920Z",
+      "usuario": "admin",
+      "acao": "Produto adicionado: Sabonete líquido artesanal de Morango 🍓",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 28,
+      "data": "2026-03-05T19:22:13.091Z",
+      "usuario": "admin",
+      "acao": "Produto adicionado: Sabonete líquido artesanal de Olho Grego Trusso 🧿",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 29,
+      "data": "2026-03-05T19:24:08.289Z",
+      "usuario": "admin",
+      "acao": "Login realizado",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 30,
+      "data": "2026-03-06T02:02:39.874Z",
+      "usuario": "admin",
+      "acao": "Login realizado",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 31,
+      "data": "2026-03-06T02:03:57.206Z",
+      "usuario": "admin",
+      "acao": "Backup exportado",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 32,
+      "data": "2026-03-06T02:08:33.790Z",
+      "usuario": "admin",
+      "acao": "Produto adicionado: Sabonete líquido artesanal de Maracujá 💛",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 33,
+      "data": "2026-03-06T02:09:59.508Z",
+      "usuario": "admin",
+      "acao": "Produto adicionado: Sabonete líquido artesanal do Stitch💙",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 34,
+      "data": "2026-03-06T02:11:25.788Z",
+      "usuario": "admin",
+      "acao": "Produto adicionado: Sabonete líquido artesanal de Lavanda",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 35,
+      "data": "2026-03-06T15:31:05.202Z",
+      "usuario": "admin",
+      "acao": "Login realizado",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 36,
+      "data": "2026-03-06T15:32:07.815Z",
+      "usuario": "admin",
+      "acao": "Backup exportado",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 37,
+      "data": "2026-03-06T15:33:40.174Z",
+      "usuario": "admin",
+      "acao": "Configurações atualizadas",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 38,
+      "data": "2026-03-06T15:33:55.348Z",
+      "usuario": "admin",
+      "acao": "Login realizado",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 39,
+      "data": "2026-03-06T15:34:08.591Z",
+      "usuario": "admin",
+      "acao": "Configurações atualizadas",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 40,
+      "data": "2026-03-06T15:34:28.455Z",
+      "usuario": "admin",
+      "acao": "Login realizado",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 41,
+      "data": "2026-03-06T15:34:37.166Z",
+      "usuario": "admin",
+      "acao": "Configurações atualizadas",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 42,
+      "data": "2026-03-06T15:34:51.549Z",
+      "usuario": "admin",
+      "acao": "Login realizado",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 43,
+      "data": "2026-03-06T15:35:06.172Z",
+      "usuario": "admin",
+      "acao": "Configurações atualizadas",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 44,
+      "data": "2026-03-06T15:36:47.129Z",
+      "usuario": "admin",
+      "acao": "Login realizado",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 45,
+      "data": "2026-03-06T15:39:53.747Z",
+      "usuario": "admin",
+      "acao": "Produto adicionado: Sabonete",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 46,
+      "data": "2026-03-06T15:53:20.066Z",
+      "usuario": "admin",
+      "acao": "Login realizado",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 47,
+      "data": "2026-03-06T15:53:42.303Z",
+      "usuario": "admin",
+      "acao": "Produto atualizado: Sabonete do amor",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 48,
+      "data": "2026-03-06T16:13:03.170Z",
+      "usuario": "admin",
+      "acao": "Login realizado",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 49,
+      "data": "2026-03-06T16:13:20.580Z",
+      "usuario": "admin",
+      "acao": "Configurações atualizadas",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 50,
+      "data": "2026-03-06T16:13:32.698Z",
+      "usuario": "admin",
+      "acao": "Login realizado",
+      "ip": "127.0.0.1"
+    }
+  ]
+}

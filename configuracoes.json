@@ -1,0 +1,26 @@
+{
+  "site": {
+    "nome": "Cheiro de Tulipa",
+    "telefone": "5511958289399",
+    "email": "contato@cheirodetulipa.com",
+    "cor_primaria": "#ff00ff",
+    "cor_secundaria": "#ffffff",
+    "modo_manutencao": false,
+    "mensagem_manutencao": "Site em manutenção. Voltamos em breve com novidades!"
+  },
+  "admin": {
+    "usuario": "admin",
+    "senha": "tulipa@2026",
+    "ultimo_acesso": "2026-03-05T10:30:00.000Z"
+  },
+  "recaptcha": {
+    "site_key": "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI",
+    "secret_key": "6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe"
+  },
+  "promocoes_24h": {
+    "ativa": false,
+    "mensagem": "🔥 Promoção relâmpago: 15% OFF em todos os produtos!",
+    "desconto_global": 15,
+    "icone": "fa-bolt"
+  }
+}

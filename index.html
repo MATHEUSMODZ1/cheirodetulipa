@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Cheiro de Tulipa - Essências Artesanais</title>
+    
+    <!-- Meta tags -->
+    <meta name="description" content="Velas e sabonetes artesanais com fragrâncias exclusivas">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    
+    <!-- Google reCAPTCHA -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    
+    <!-- CSS Principal -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">
+            <i class="fas fa-tulip"></i>
+            <span>Cheiro de Tulipa</span>
+        </div>
+        
+        <!-- Hambúrger Menu (RGB só nos pauzinhos) -->
+        <div class="hamburger-btn" onclick="toggleSidebar()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay" onclick="fecharSidebar()"></div>
+
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-menu">
+            <a href="#" class="active" onclick="mostrarInicial(); fecharSidebar()">
+                <i class="fas fa-home"></i>
+                <span>Início</span>
+            </a>
+            <a href="#" onclick="carregarCategoria('velas'); fecharSidebar()">
+                <i class="fas fa-fire"></i>
+                <span>Velas</span>
+            </a>
+            <a href="#" onclick="carregarCategoria('sabonetes'); fecharSidebar()">
+                <i class="fas fa-soap"></i>
+                <span>Sabonetes</span>
+            </a>
+            <a href="#" onclick="carregarCategoria('sabonetes-liquidos'); fecharSidebar()">
+                <i class="fas fa-droplet"></i>
+                <span>Sabonetes Líquidos</span>
+            </a>
+            <a href="#" onclick="carregarCategoria('kits'); fecharSidebar()">
+                <i class="fas fa-gift"></i>
+                <span>Kits</span>
+            </a>
+            <a href="#" onclick="carregarCategoria('promocoes'); fecharSidebar()">
+                <i class="fas fa-tags"></i>
+                <span>Promoções</span>
+            </a>
+            <a href="admin.html" target="_blank">
+                <i class="fas fa-user-shield"></i>
+                <span>Admin</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Banner de Promoção 24h -->
+    <div id="promo-banner" class="promo-banner">
+        <i class="fas fa-bolt"></i>
+        <span id="promo-mensagem">🔥 Promoção relâmpago: 15% OFF em todos os produtos!</span>
+        <button class="close-banner" onclick="fecharBanner()"><i class="fas fa-times"></i></button>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content" id="main-content">
+        <!-- Tela Inicial -->
+        <div id="welcome-screen" class="welcome-screen">
+            <!-- Card de Boas-Vindas -->
+            <div class="welcome-card">
+                <i class="fas fa-tulip welcome-icon"></i>
+                <h1>Cheiro de <span>Tulipa</span></h1>
+                <p>Descubra o prazer de cuidar de si mesmo com nossas essências artesanais</p>
+                
+                <!-- Bolinhas estilo Instagram (sem RGB) -->
+                <div class="categorias-stories">
+                    <div class="story-item" onclick="carregarCategoria('velas')">
+                        <div class="story-circle">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                        <span>Velas</span>
+                    </div>
+                    
+                    <div class="story-item" onclick="carregarCategoria('sabonetes')">
+                        <div class="story-circle">
+                            <i class="fas fa-soap"></i>
+                        </div>
+                        <span>Sabonetes</span>
+                    </div>
+                    
+                    <div class="story-item" onclick="carregarCategoria('sabonetes-liquidos')">
+                        <div class="story-circle">
+                            <i class="fas fa-droplet"></i>
+                        </div>
+                        <span>Líquidos</span>
+                    </div>
+                    
+                    <div class="story-item" onclick="carregarCategoria('kits')">
+                        <div class="story-circle">
+                            <i class="fas fa-gift"></i>
+                        </div>
+                        <span>Kits</span>
+                    </div>
+                    
+                    <div class="story-item" onclick="carregarCategoria('promocoes')">
+                        <div class="story-circle">
+                            <i class="fas fa-tags"></i>
+                        </div>
+                        <span>Promoções</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produtos em Destaque -->
+            <h2 class="section-title">
+                <i class="fas fa-star" style="color: #fbbf24;"></i>
+                Produtos em Destaque
+            </h2>
+            
+            <div id="produtos-destaque" class="produtos-grid">
+                <!-- Destaques serão carregados via JS -->
+            </div>
+        </div>
+
+        <!-- Tela de Produtos por Categoria -->
+        <div id="products-screen" class="products-screen">
+            <div class="products-header">
+                <button class="back-btn" onclick="mostrarInicial()">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <h2 class="products-title" id="categoria-titulo">Velas</h2>
+            </div>
+            
+            <div id="produtos-container" class="produtos-grid">
+                <!-- Produtos serão carregados via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <i class="fas fa-tulip"></i>
+                    <span>Cheiro de Tulipa</span>
+                </div>
+                <p>Essências artesanais feitas com amor desde 2020</p>
+            </div>
+            
+            
+            <div class="footer-section">
+                <h4>Contato</h4>
+                <a href="https://wa.me/5511999999999" target="_blank">
+                    <i class="fab fa-whatsapp"></i> (11) 95828-9399
+                </a>
+                <a href="mailto:contato@cheirodetulipa.com">
+                    <i class="far fa-envelope"></i> contato@cheirodetulipa.com
+                </a>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Redes Sociais</h4>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/shei.latulipa"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me//5511958289399"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2035-2026 <strong>Cheiro de Tulipa</strong> - Todos os direitos reservados</p>
+        </div>
+    </footer>
+
+    <!-- Carrinho Flutuante -->
+    <div class="carrinho-flutuante">
+        <div class="carrinho-btn" onclick="toggleCarrinho()">
+            <i class="fas fa-shopping-bag"></i>
+            <span class="carrinho-count" id="carrinho-count">0</span>
+        </div>
+        
+        <div class="carrinho-modal" id="carrinho-modal">
+            <div class="carrinho-header">
+                <h3><i class="fas fa-shopping-bag"></i> Seu Carrinho</h3>
+                <button class="fechar-carrinho" onclick="toggleCarrinho()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div id="carrinho-items" class="carrinho-items">
+                <!-- Itens do carrinho -->
+            </div>
+            
+            <div class="carrinho-total">
+                <span>Total:</span>
+                <span id="carrinho-total">R$ 0,00</span>
+            </div>
+            
+            <!-- reCAPTCHA e Finalização -->
+            <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" data-callback="onRecaptchaSuccess"></div>
+            
+            <button class="btn-finalizar" id="btn-finalizar" onclick="finalizarCompra()" disabled>
+                <i class="fab fa-whatsapp"></i> Finalizar Pedido
+            </button>
+        </div>
+    </div>
+
+    <!-- Alert Toast -->
+    <div id="alert-toast" class="alert-toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="alert-message">Produto adicionado!</span>
+    </div>
+
+<!-- Modal de Preview de Imagem -->
+<div id="preview-modal" class="preview-modal">
+    <span class="preview-close" onclick="fecharPreview()">&times;</span>
+    <img class="preview-content" id="preview-image">
+    <div class="preview-caption" id="preview-caption"></div>
+</div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>

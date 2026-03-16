@@ -1,0 +1,1456 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Admin - Cheiro de Tulipa</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6d28d9;
+            --primary-light: #8b5cf6;
+            --secondary: #7c3aed;
+            --success: #10b981;
+            --danger: #ef4444;
+            --warning: #f59e0b;
+            --dark: #1f2937;
+            --light: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+            --border-radius: 12px;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--light);
+            color: var(--dark);
+            min-height: 100vh;
+        }
+
+        /* Login */
+        .login-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            padding: 20px;
+        }
+
+        .login-box {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 40px 30px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .login-header i {
+            font-size: 60px;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .login-header h2 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .login-header p {
+            color: var(--gray-500);
+            font-size: 14px;
+        }
+
+        .input-group {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .input-group i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gray-400);
+            font-size: 18px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 15px 15px 15px 45px;
+            border: 2px solid var(--gray-200);
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(109, 40, 217, 0.1);
+        }
+
+        .btn-login {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn-login:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Topbar */
+        .topbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 70px;
+            background: white;
+            border-bottom: 1px solid var(--gray-200);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            z-index: 100;
+        }
+
+        .topbar-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .menu-toggle {
+            width: 44px;
+            height: 44px;
+            background: var(--gray-100);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .menu-toggle:hover {
+            background: var(--gray-200);
+        }
+
+        .menu-toggle i {
+            font-size: 22px;
+            color: var(--primary);
+        }
+
+        .topbar-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .topbar-logo i {
+            font-size: 28px;
+            color: var(--primary);
+        }
+
+        .topbar-logo span {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .topbar-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .admin-user {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .admin-user i {
+            font-size: 32px;
+            color: var(--gray-400);
+        }
+
+        .btn-logout {
+            width: 44px;
+            height: 44px;
+            background: var(--danger);
+            border: none;
+            border-radius: 10px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 18px;
+        }
+
+        .btn-logout:hover {
+            background: #dc2626;
+            transform: scale(0.95);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: fixed;
+            top: 70px;
+            left: -280px;
+            width: 260px;
+            height: calc(100vh - 70px);
+            background: white;
+            border-right: 1px solid var(--gray-200);
+            transition: left 0.3s ease;
+            z-index: 99;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+        }
+
+        .sidebar.active {
+            left: 0;
+        }
+
+        .sidebar-menu {
+            padding: 20px;
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        .sidebar-menu a {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 12px 15px;
+            margin-bottom: 5px;
+            border-radius: 10px;
+            color: var(--gray-500);
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 15px;
+        }
+
+        .sidebar-menu a i {
+            width: 24px;
+            font-size: 20px;
+        }
+
+        .sidebar-menu a:hover {
+            background: var(--gray-100);
+            color: var(--primary);
+        }
+
+        .sidebar-menu a.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .sidebar-footer {
+            padding: 20px;
+            border-top: 1px solid var(--gray-200);
+        }
+
+        .sidebar-footer a {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 12px 15px;
+            border-radius: 10px;
+            color: var(--gray-500);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .sidebar-footer a:hover {
+            background: var(--gray-100);
+            color: var(--primary);
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 0;
+            margin-top: 70px;
+            padding: 20px;
+            transition: margin-left 0.3s ease;
+            min-height: calc(100vh - 70px);
+        }
+
+        .main-content.expanded {
+            margin-left: 260px;
+        }
+
+        .content-section {
+            display: none;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        .page-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        /* Stats Cards */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .stat-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .stat-icon i {
+            font-size: 24px;
+            color: white;
+        }
+
+        .stat-info h3 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 3px;
+        }
+
+        .stat-info p {
+            color: var(--gray-500);
+            font-size: 13px;
+        }
+
+        /* Dashboard Grid */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .dashboard-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 20px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .dashboard-card h3 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--gray-200);
+            font-size: 16px;
+        }
+
+        /* Section Header */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        /* Botões */
+        .btn-primary {
+            padding: 12px 20px;
+            background: var(--primary);
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+        }
+
+        .btn-primary:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-secondary {
+            padding: 12px 20px;
+            background: var(--gray-200);
+            border: none;
+            border-radius: 8px;
+            color: var(--dark);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+        }
+
+        .btn-secondary:hover {
+            background: var(--gray-300);
+        }
+
+        /* Filtros */
+        .filtros-container {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 15px;
+            margin-bottom: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .filtro-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--gray-500);
+        }
+
+        .filtro-group select,
+        .filtro-group input {
+            width: 100%;
+            padding: 10px 12px;
+            border: 2px solid var(--gray-200);
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        /* Tabela */
+        .table-responsive {
+            overflow-x: auto;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 800px;
+        }
+
+        .data-table th {
+            background: var(--gray-100);
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            color: var(--gray-500);
+            font-size: 13px;
+        }
+
+        .data-table td {
+            padding: 12px;
+            border-bottom: 1px solid var(--gray-200);
+            font-size: 14px;
+        }
+
+        .produto-imagem-tabela {
+            width: 40px;
+            height: 40px;
+            border-radius: 6px;
+            background: var(--gray-200);
+            background-size: cover;
+            background-position: center;
+        }
+
+        .status-badge {
+            padding: 4px 8px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .status-promocao {
+            background: var(--warning);
+            color: white;
+        }
+
+        .status-destaque {
+            background: var(--primary);
+            color: white;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 5px;
+        }
+
+        .btn-edit, .btn-delete {
+            width: 32px;
+            height: 32px;
+            border: none;
+            border-radius: 6px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-edit {
+            background: var(--primary);
+        }
+
+        .btn-edit:hover {
+            background: var(--secondary);
+        }
+
+        .btn-delete {
+            background: var(--danger);
+        }
+
+        .btn-delete:hover {
+            background: #dc2626;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: var(--border-radius);
+            width: 90%;
+            max-width: 600px;
+            margin: 30px auto;
+            animation: modalSlide 0.3s ease;
+        }
+
+        .modal-header {
+            padding: 20px;
+            border-bottom: 1px solid var(--gray-200);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h2 {
+            font-size: 20px;
+        }
+
+        .modal-header .close {
+            font-size: 28px;
+            cursor: pointer;
+            color: var(--gray-400);
+        }
+
+        .modal-header .close:hover {
+            color: var(--danger);
+        }
+
+        .modal form {
+            padding: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border: 2px solid var(--gray-200);
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .form-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .form-checkbox input {
+            width: auto;
+        }
+
+        .modal-footer {
+            padding: 20px;
+            border-top: 1px solid var(--gray-200);
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+
+        .imagem-preview {
+            margin-top: 10px;
+            max-width: 150px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .imagem-preview img {
+            width: 100%;
+            height: auto;
+        }
+
+        /* Promoção */
+        .promo-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .promo-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .promo-header i {
+            font-size: 28px;
+            color: var(--warning);
+        }
+
+        .promo-switch {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 26px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--gray-300);
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 20px;
+            width: 20px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: var(--success);
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(24px);
+        }
+
+        /* Configurações */
+        .config-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .config-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 20px;
+        }
+
+        .config-card h3 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--gray-200);
+            font-size: 16px;
+        }
+
+        /* Backup */
+        .backup-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .backup-card i {
+            font-size: 50px;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .backup-card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .backup-card p {
+            color: var(--gray-500);
+            margin-bottom: 20px;
+        }
+
+        /* Alert */
+        .alert-toast {
+            position: fixed;
+            top: 90px;
+            right: 20px;
+            background: white;
+            border-radius: 10px;
+            padding: 15px 20px;
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 1100;
+            transform: translateX(400px);
+            transition: transform 0.3s ease;
+            border-left: 4px solid var(--success);
+            max-width: 90%;
+        }
+
+        .alert-toast.show {
+            transform: translateX(0);
+        }
+
+        .alert-toast i {
+            font-size: 22px;
+            color: var(--success);
+        }
+
+        /* Overlay do menu */
+        .menu-overlay {
+            position: fixed;
+            top: 70px;
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 70px);
+            background: rgba(0,0,0,0.3);
+            z-index: 98;
+            display: none;
+        }
+
+        .menu-overlay.active {
+            display: block;
+        }
+
+        /* Utilitários */
+        .text-center {
+            text-align: center;
+        }
+
+        .text-muted {
+            color: var(--gray-400);
+        }
+
+        /* Animações */
+        @keyframes modalSlide {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .topbar-logo span {
+                display: none;
+            }
+            
+            .admin-user span {
+                display: none;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .config-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-header {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .btn-primary {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .filtros-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-content {
+                width: 95%;
+                margin: 20px auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .topbar {
+                padding: 0 10px;
+            }
+            
+            .admin-user i {
+                font-size: 28px;
+            }
+            
+            .btn-logout {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .menu-toggle {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .page-title {
+                font-size: 20px;
+            }
+            
+            .stat-card {
+                padding: 15px;
+            }
+            
+            .stat-info h3 {
+                font-size: 18px;
+            }
+            
+            .modal-header h2 {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Tela de Login -->
+    <div id="login-screen" class="login-screen">
+        <div class="login-box">
+            <div class="login-header">
+                <i class="fas fa-tulip"></i>
+                <h2>Cheiro de Tulipa</h2>
+                <p>Área Administrativa</p>
+            </div>
+            
+            <form id="login-form">
+                <div class="input-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="usuario" placeholder="Usuário" value="admin" required>
+                </div>
+                
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="senha" placeholder="Senha" value="tulipa@2026" required>
+                </div>
+                
+                <button type="submit" class="btn-login">
+                    <i class="fas fa-sign-in-alt"></i> Entrar
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Painel Admin -->
+    <div id="admin-panel" style="display: none;">
+        <!-- Topbar -->
+        <div class="topbar">
+            <div class="topbar-left">
+                <div class="menu-toggle" onclick="toggleMenu()">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <div class="topbar-logo">
+                    <i class="fas fa-tulip"></i>
+                    <span>Cheiro de Tulipa - Admin</span>
+                </div>
+            </div>
+            
+            <div class="topbar-right">
+                <div class="admin-user">
+                    <i class="fas fa-user-circle"></i>
+                    <span id="admin-nome">Admin</span>
+                </div>
+                <button class="btn-logout" onclick="logout()" title="Sair">
+                    <i class="fas fa-sign-out-alt"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Overlay do menu (mobile) -->
+        <div id="menu-overlay" class="menu-overlay" onclick="toggleMenu()"></div>
+
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-menu">
+                <a href="#" onclick="mostrarSecao('dashboard'); return false;" class="active" id="link-dashboard">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#" onclick="mostrarSecao('produtos'); return false;" id="link-produtos">
+                    <i class="fas fa-box"></i>
+                    <span>Produtos</span>
+                </a>
+                <a href="#" onclick="mostrarSecao('promocoes'); return false;" id="link-promocoes">
+                    <i class="fas fa-bolt"></i>
+                    <span>Promoções 24h</span>
+                </a>
+                <a href="#" onclick="mostrarSecao('configuracoes'); return false;" id="link-configuracoes">
+                    <i class="fas fa-cog"></i>
+                    <span>Configurações</span>
+                </a>
+                <a href="#" onclick="mostrarSecao('logs'); return false;" id="link-logs">
+                    <i class="fas fa-history"></i>
+                    <span>Logs</span>
+                </a>
+                <a href="#" onclick="mostrarSecao('backup'); return false;" id="link-backup">
+                    <i class="fas fa-download"></i>
+                    <span>Backup</span>
+                </a>
+            </div>
+            
+            <div class="sidebar-footer">
+                <a href="index.html" target="_blank">
+                    <i class="fas fa-external-link-alt"></i>
+                    <span>Ver Site</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Conteúdo Principal -->
+        <div class="main-content" id="main-content">
+            <!-- Dashboard -->
+            <div id="dashboard" class="content-section active">
+                <h1 class="page-title">Dashboard</h1>
+                
+                <div class="stats-grid" id="stats-container">
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: linear-gradient(135deg, #6d28d9, #8b5cf6);">
+                            <i class="fas fa-box"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="total-produtos">0</h3>
+                            <p>Total de Produtos</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: linear-gradient(135deg, #f59e0b, #fbbf24);">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="total-promocoes">0</h3>
+                            <p>Em Promoção</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: linear-gradient(135deg, #10b981, #34d399);">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="total-destaques">0</h3>
+                            <p>Destaques</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: linear-gradient(135deg, #ef4444, #f87171);">
+                            <i class="fas fa-tags"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="total-estoque">0</h3>
+                            <p>Itens em Estoque</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dashboard-grid">
+                    <div class="dashboard-card">
+                        <h3><i class="fas fa-chart-pie"></i> Produtos por Categoria</h3>
+                        <canvas id="grafico-categorias" style="max-height: 250px;"></canvas>
+                    </div>
+                    
+                    <div class="dashboard-card">
+                        <h3><i class="fas fa-clock"></i> Últimos Logs</h3>
+                        <div id="ultimos-logs" class="logs-list">
+                            <p class="text-muted">Carregando...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produtos -->
+            <div id="produtos" class="content-section">
+                <div class="section-header">
+                    <h1 class="page-title">Gerenciar Produtos</h1>
+                    <button class="btn-primary" onclick="abrirModalProduto()">
+                        <i class="fas fa-plus"></i> Novo Produto
+                    </button>
+                </div>
+                
+                <div class="filtros-container">
+                    <div class="filtro-group">
+                        <label>Filtrar por categoria:</label>
+                        <select id="filtro-categoria" onchange="filtrarProdutos()">
+                            <option value="todas">Todas as categorias</option>
+                            <option value="velas">Velas</option>
+                            <option value="sabonetes">Sabonetes</option>
+                            <option value="sabonetes-liquidos">Sabonetes Líquidos</option>
+                            <option value="kits">Kits</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filtro-group">
+                        <label>Status:</label>
+                        <select id="filtro-status" onchange="filtrarProdutos()">
+                            <option value="todos">Todos</option>
+                            <option value="promocao">Em Promoção</option>
+                            <option value="destaque">Destaque</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filtro-group">
+                        <label>Buscar:</label>
+                        <input type="text" id="busca-produto" placeholder="Nome do produto..." onkeyup="filtrarProdutos()">
+                    </div>
+                </div>
+                
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Imagem</th>
+                                <th>Nome</th>
+                                <th>Categoria</th>
+                                <th>Preço</th>
+                                <th>Promoção</th>
+                                <th>Estoque</th>
+                                <th>Status</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabela-produtos">
+                            <tr>
+                                <td colspan="9" class="text-center">Carregando produtos...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Promoções 24h -->
+            <div id="promocoes" class="content-section">
+                <h1 class="page-title">Promoções 24h</h1>
+                
+                <div class="promo-card">
+                    <div class="promo-header">
+                        <i class="fas fa-bolt"></i>
+                        <h2>Controle de Promoção Relâmpago</h2>
+                    </div>
+                    
+                    <div class="promo-switch">
+                        <label class="switch">
+                            <input type="checkbox" id="promo-ativa" onchange="togglePromocao24h()">
+                            <span class="slider"></span>
+                        </label>
+                        <span id="promo-status">Desativada</span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Mensagem da Promoção</label>
+                        <input type="text" id="promo-mensagem" value="🔥 Promoção relâmpago: 15% OFF em todos os produtos!">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Desconto Global (%)</label>
+                        <input type="number" id="promo-desconto" min="0" max="100" value="15">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Ícone</label>
+                        <select id="promo-icone">
+                            <option value="fa-bolt">Raio</option>
+                            <option value="fa-fire">Fogo</option>
+                            <option value="fa-tag">Etiqueta</option>
+                            <option value="fa-gem">Diamante</option>
+                        </select>
+                    </div>
+                    
+                    <button class="btn-primary" onclick="salvarPromocao24h()">
+                        <i class="fas fa-save"></i> Salvar Configurações
+                    </button>
+                </div>
+                
+                <h2 style="margin: 30px 0 15px;">Produtos em Promoção</h2>
+                
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Produto</th>
+                                <th>Preço Original</th>
+                                <th>Preço Promocional</th>
+                                <th>Desconto</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabela-promocoes">
+                            <tr>
+                                <td colspan="6" class="text-center">Carregando...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Configurações -->
+            <div id="configuracoes" class="content-section">
+                <h1 class="page-title">Configurações</h1>
+                
+                <div class="config-grid">
+                    <div class="config-card">
+                        <h3><i class="fas fa-store"></i> Informações da Loja</h3>
+                        
+                        <div class="form-group">
+                            <label>Nome da Loja</label>
+                            <input type="text" id="config-nome" value="Cheiro de Tulipa">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Telefone WhatsApp</label>
+                            <input type="text" id="config-telefone" value="5511999999999">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>E-mail</label>
+                            <input type="email" id="config-email" value="contato@cheirodetulipa.com">
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Cor Primária</label>
+                                <input type="color" id="config-cor-primaria" value="#6d28d9">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Cor Secundária</label>
+                                <input type="color" id="config-cor-secundaria" value="#8b5cf6">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="config-card">
+                        <h3><i class="fas fa-user-shield"></i> Credenciais Admin</h3>
+                        
+                        <div class="form-group">
+                            <label>Usuário</label>
+                            <input type="text" id="config-usuario" value="admin">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Nova Senha</label>
+                            <input type="password" id="config-senha" placeholder="Deixe em branco para manter">
+                        </div>
+                    </div>
+                    
+                    <div class="config-card">
+                        <h3><i class="fas fa-tools"></i> Modo Manutenção</h3>
+                        
+                        <div class="promo-switch">
+                            <label class="switch">
+                                <input type="checkbox" id="modo-manutencao" onchange="toggleManutencao()">
+                                <span class="slider"></span>
+                            </label>
+                            <span id="manutencao-status">Desativado</span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Mensagem de Manutenção</label>
+                            <textarea id="mensagem-manutencao" rows="3">Site em manutenção. Voltamos em breve com novidades!</textarea>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="btn-primary" onclick="salvarConfiguracoes()" style="margin-top: 20px;">
+                    <i class="fas fa-save"></i> Salvar Todas as Configurações
+                </button>
+            </div>
+
+            <!-- Logs -->
+            <div id="logs" class="content-section">
+                <h1 class="page-title">Registro de Atividades</h1>
+                
+                <div class="filtros-container">
+                    <div class="filtro-group">
+                        <label>Filtrar por:</label>
+                        <select id="filtro-log" onchange="filtrarLogs()">
+                            <option value="todos">Todos</option>
+                            <option value="login">Logins</option>
+                            <option value="produto">Produtos</option>
+                            <option value="config">Configurações</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Data/Hora</th>
+                                <th>Usuário</th>
+                                <th>Ação</th>
+                                <th>IP</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabela-logs">
+                            <tr>
+                                <td colspan="4" class="text-center">Carregando logs...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Backup -->
+            <div id="backup" class="content-section">
+                <h1 class="page-title">Backup e Restauração</h1>
+                
+                <div class="backup-card">
+                    <i class="fas fa-download"></i>
+                    <h3>Exportar Backup</h3>
+                    <p>Baixe um arquivo com todos os dados do sistema</p>
+                    <button class="btn-primary" onclick="exportarBackup()">
+                        <i class="fas fa-file-export"></i> Gerar Backup
+                    </button>
+                </div>
+                
+                <div class="backup-card">
+                    <i class="fas fa-upload"></i>
+                    <h3>Importar Backup</h3>
+                    <p>Restaurar dados a partir de um arquivo de backup</p>
+                    <input type="file" id="importar-backup" accept=".json" style="display: none;">
+                    <button class="btn-secondary" onclick="document.getElementById('importar-backup').click()">
+                        <i class="fas fa-file-import"></i> Selecionar Arquivo
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Produto -->
+    <div id="modal-produto" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-produto-titulo">Novo Produto</h2>
+                <span class="close" onclick="fecharModalProduto()">&times;</span>
+            </div>
+            
+            <form id="form-produto" onsubmit="salvarProduto(event)">
+                <input type="hidden" id="produto-id">
+                
+                <div class="form-group">
+                    <label>Nome do Produto *</label>
+                    <input type="text" id="produto-nome" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Descrição *</label>
+                    <textarea id="produto-descricao" rows="3" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label>Categoria *</label>
+                    <select id="produto-categoria" required>
+                        <option value="velas">Velas</option>
+                        <option value="sabonetes">Sabonetes</option>
+                        <option value="sabonetes-liquidos">Sabonetes Líquidos</option>
+                        <option value="kits">Kits</option>
+                    </select>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Preço Original (R$) *</label>
+                        <input type="number" id="produto-preco-original" step="0.01" min="0" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Estoque *</label>
+                        <input type="number" id="produto-estoque" min="0" required>
+                    </div>
+                </div>
+                
+                <div class="form-checkbox">
+                    <input type="checkbox" id="produto-em-promocao" onchange="togglePromocaoProduto()">
+                    <label>Produto em Promoção</label>
+                </div>
+                
+                <div id="campo-preco-promocional" style="display: none;">
+                    <div class="form-group">
+                        <label>Preço Promocional (R$)</label>
+                        <input type="number" id="produto-preco-promocional" step="0.01" min="0">
+                    </div>
+                </div>
+                
+                <div class="form-checkbox">
+                    <input type="checkbox" id="produto-destaque">
+                    <label>Produto em Destaque</label>
+                </div>
+                
+                <div class="form-group">
+                    <label>Imagem do Produto</label>
+                    <input type="file" id="produto-imagem" accept="image/*">
+                    <div id="imagem-preview" class="imagem-preview"></div>
+                </div>
+                
+                <div class="modal-footer">
+                    <button type="button" class="btn-secondary" onclick="fecharModalProduto()">Cancelar</button>
+                    <button type="submit" class="btn-primary">
+                        <i class="fas fa-save"></i> Salvar Produto
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Alert Toast -->
+    <div id="alert-toast" class="alert-toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="alert-message">Operação realizada com sucesso!</span>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>

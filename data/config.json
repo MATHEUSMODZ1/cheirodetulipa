@@ -1,0 +1,16 @@
+{
+  "site": {
+    "nome": "Essência & Arte",
+    "telefone": "5511999999999",
+    "email": "contato@essenciaarte.com",
+    "cores": {
+      "primaria": "#6d28d9",
+      "secundaria": "#7c3aed",
+      "background": "#f5f3ff"
+    }
+  },
+  "admin": {
+    "usuario": "admin",
+    "senha": "essencia2024"
+  }
+}
