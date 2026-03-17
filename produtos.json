@@ -10,20 +10,20 @@
       "categoria": "kits",
       "destaque": false,
       "estoque": 10,
-      "imagem": "produto-1772737759501-451799653.png",
+      "imagem": "produto-1773763989262-277298000.jpg",
       "data_criacao": "2026-03-05"
     },
     {
       "id": 2,
       "nome": "Kit Lavanda",
       "descricao": "Sabonete líquido artesanal + Sabonete massageador artesanal + Bucha de banho, Fragrância de lavanda.",
-      "preco_original": 30,
+      "preco_original": 45,
       "preco_promocional": 0,
       "em_promocao": false,
       "categoria": "kits",
       "destaque": true,
       "estoque": 10,
-      "imagem": "produto-1772738011911-552021696.png",
+      "imagem": "produto-1773764009741-634213403.png",
       "data_criacao": "2026-03-05"
     },
     {
@@ -36,7 +36,7 @@
       "categoria": "kits",
       "destaque": true,
       "estoque": 10,
-      "imagem": "produto-1772738086028-625083721.png",
+      "imagem": "produto-1773764019583-323659386.jpg",
       "data_criacao": "2026-03-05"
     },
     {
@@ -49,7 +49,7 @@
       "categoria": "kits",
       "destaque": false,
       "estoque": 10,
-      "imagem": "produto-1772738176292-109399819.png",
+      "imagem": "produto-1773764027683-457112136.jpg",
       "data_criacao": "2026-03-05"
     },
     {
@@ -62,7 +62,7 @@
       "categoria": "sabonetes-liquidos",
       "destaque": false,
       "estoque": 10,
-      "imagem": "produto-1772738430894-889085695.jpg",
+      "imagem": "produto-1773764312022-128906372.jpg",
       "data_criacao": "2026-03-05"
     },
     {
@@ -75,7 +75,7 @@
       "categoria": "sabonetes-liquidos",
       "destaque": false,
       "estoque": 10,
-      "imagem": "produto-1772738533067-14567731.jpg",
+      "imagem": "produto-1773764316765-61431927.jpg",
       "data_criacao": "2026-03-05"
     },
     {
@@ -88,7 +88,7 @@
       "categoria": "sabonetes-liquidos",
       "destaque": false,
       "estoque": 10,
-      "imagem": "produto-1772762913724-210238663.jpg",
+      "imagem": "produto-1773764321521-131952575.jpg",
       "data_criacao": "2026-03-06"
     },
     {
@@ -101,7 +101,7 @@
       "categoria": "sabonetes-liquidos",
       "destaque": false,
       "estoque": 10,
-      "imagem": "produto-1772762999478-236694410.jpg",
+      "imagem": "produto-1773764318765-260044267.jpg",
       "data_criacao": "2026-03-06"
     },
     {
@@ -114,7 +114,7 @@
       "categoria": "sabonetes-liquidos",
       "destaque": false,
       "estoque": 10,
-      "imagem": "produto-1772763085757-799931737.jpg",
+      "imagem": "produto-1773764327328-105115709.jpg",
       "data_criacao": "2026-03-06"
     },
     {
@@ -126,8 +126,8 @@
       "em_promocao": false,
       "categoria": "sabonetes",
       "destaque": true,
-      "estoque": 10,
-      "imagem": "produto-1772811593698-153570520.jpg",
+      "estoque": 14,
+      "imagem": "produto-1773764360849-995637540.jpg",
       "data_criacao": "2026-03-06"
     }
   ]

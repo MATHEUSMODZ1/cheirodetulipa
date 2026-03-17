@@ -349,6 +349,216 @@
       "usuario": "admin",
       "acao": "Login realizado",
       "ip": "127.0.0.1"
+    },
+    {
+      "id": 51,
+      "data": "2026-03-17T12:50:11.969Z",
+      "usuario": "admin",
+      "acao": "Login realizado",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 52,
+      "data": "2026-03-17T12:50:27.701Z",
+      "usuario": "admin",
+      "acao": "Configurações atualizadas",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 53,
+      "data": "2026-03-17T12:50:55.937Z",
+      "usuario": "admin",
+      "acao": "Login realizado",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 54,
+      "data": "2026-03-17T12:51:22.604Z",
+      "usuario": "admin",
+      "acao": "Configurações atualizadas",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 55,
+      "data": "2026-03-17T12:51:41.605Z",
+      "usuario": "admin",
+      "acao": "Login realizado",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 56,
+      "data": "2026-03-17T12:51:58.271Z",
+      "usuario": "admin",
+      "acao": "Produto atualizado: Kit Stitch",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 57,
+      "data": "2026-03-17T12:52:02.674Z",
+      "usuario": "admin",
+      "acao": "Produto atualizado: Kit Lavanda",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 58,
+      "data": "2026-03-17T12:52:04.510Z",
+      "usuario": "admin",
+      "acao": "Produto atualizado: Kit Capim limão",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 59,
+      "data": "2026-03-17T12:52:06.080Z",
+      "usuario": "admin",
+      "acao": "Produto atualizado: Kit Chá Branco Artesanal",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 60,
+      "data": "2026-03-17T12:52:07.572Z",
+      "usuario": "admin",
+      "acao": "Produto atualizado: Sabonete líquido artesanal de Morango 🍓",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 61,
+      "data": "2026-03-17T12:52:09.056Z",
+      "usuario": "admin",
+      "acao": "Produto atualizado: Sabonete líquido artesanal de Olho Grego Trusso 🧿",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 62,
+      "data": "2026-03-17T12:52:13.257Z",
+      "usuario": "admin",
+      "acao": "Produto atualizado: Sabonete líquido artesanal de Maracujá 💛",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 63,
+      "data": "2026-03-17T12:52:14.899Z",
+      "usuario": "admin",
+      "acao": "Produto atualizado: Sabonete líquido artesanal do Stitch💙",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 64,
+      "data": "2026-03-17T12:52:16.227Z",
+      "usuario": "admin",
+      "acao": "Produto atualizado: Sabonete líquido artesanal de Lavanda",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 65,
+      "data": "2026-03-17T12:52:17.592Z",
+      "usuario": "admin",
+      "acao": "Produto atualizado: Sabonete do amor",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 66,
+      "data": "2026-03-17T12:52:27.186Z",
+      "usuario": "admin",
+      "acao": "Login realizado",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 67,
+      "data": "2026-03-17T16:12:14.656Z",
+      "usuario": "admin",
+      "acao": "Login realizado",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 68,
+      "data": "2026-03-17T16:13:09.361Z",
+      "usuario": "admin",
+      "acao": "Produto atualizado: Kit Stitch",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 69,
+      "data": "2026-03-17T16:13:29.811Z",
+      "usuario": "admin",
+      "acao": "Produto atualizado: Kit Lavanda",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 70,
+      "data": "2026-03-17T16:13:39.623Z",
+      "usuario": "admin",
+      "acao": "Produto atualizado: Kit Capim limão",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 71,
+      "data": "2026-03-17T16:13:47.720Z",
+      "usuario": "admin",
+      "acao": "Produto atualizado: Kit Chá Branco Artesanal",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 72,
+      "data": "2026-03-17T16:14:51.567Z",
+      "usuario": "admin",
+      "acao": "Login realizado",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 73,
+      "data": "2026-03-17T16:18:16.225Z",
+      "usuario": "admin",
+      "acao": "Login realizado",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 74,
+      "data": "2026-03-17T16:18:32.059Z",
+      "usuario": "admin",
+      "acao": "Produto atualizado: Sabonete líquido artesanal de Morango 🍓",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 75,
+      "data": "2026-03-17T16:18:36.792Z",
+      "usuario": "admin",
+      "acao": "Produto atualizado: Sabonete líquido artesanal de Olho Grego Trusso 🧿",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 76,
+      "data": "2026-03-17T16:18:38.797Z",
+      "usuario": "admin",
+      "acao": "Produto atualizado: Sabonete líquido artesanal do Stitch💙",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 77,
+      "data": "2026-03-17T16:18:41.547Z",
+      "usuario": "admin",
+      "acao": "Produto atualizado: Sabonete líquido artesanal de Maracujá 💛",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 78,
+      "data": "2026-03-17T16:18:47.350Z",
+      "usuario": "admin",
+      "acao": "Produto atualizado: Sabonete líquido artesanal de Lavanda",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 79,
+      "data": "2026-03-17T16:18:56.451Z",
+      "usuario": "admin",
+      "acao": "Produto atualizado: Sabonete do amor",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": 80,
+      "data": "2026-03-17T16:19:20.886Z",
+      "usuario": "admin",
+      "acao": "Produto atualizado: Sabonete do amor",
+      "ip": "127.0.0.1"
     }
   ]
 }
